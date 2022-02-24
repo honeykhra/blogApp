@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
+import Link from 'next/link'
 
 const categories = () => {
   return <div>categories</div>
