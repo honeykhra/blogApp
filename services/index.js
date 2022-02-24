@@ -1,4 +1,5 @@
 import { request, gql } from 'graphql-request'
+import categories from './../components/Categories'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
 
@@ -53,4 +54,25 @@ export const getRecentPosts = async () => {
   const result = await request(graphqlAPI, query)
   // console.log(result.posts)
   return result.posts
+}
+
+export const getSimilarPosts = async () => {
+  const query = gql`
+    query GetPostDetails($slug: String!, $categories: [String!]) {
+      posts(
+        where: {
+          slug_not: $slug
+          AND: { categories_some: { slug_in: $categories } }
+        }
+        last: 3
+      ) {
+        title
+        featuredImage {
+          url
+        }
+        createdAt
+        slug
+      }
+    }
+  `
 }
