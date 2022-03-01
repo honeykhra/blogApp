@@ -10,7 +10,7 @@ import {
 } from '../../components'
 
 const PostDetails = ({ post }) => {
-  console.log(post)
+  // console.log(post)
 
   return (
     <div className=" container mx-auto mb-8 px-10">
