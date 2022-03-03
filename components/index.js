@@ -1,5 +1,4 @@
 export { default as PostCard } from './PostCard'
-import FeaturedPostCard from './FeaturedPostCard'
 export { default as PostWidget } from './PostWidget'
 export { default as Categories } from './Categories'
 export { default as Header } from './Header'
